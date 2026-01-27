@@ -87,16 +87,16 @@ function Dashboard() {
         component="a"
         href="#main-content"
         sx={{
-          position: 'absolute',
-          left: '-9999px',
+          position: "absolute",
+          left: "-9999px",
           zIndex: 999,
-          padding: '1rem',
-          backgroundColor: 'primary.main',
-          color: 'white',
-          textDecoration: 'none',
-          '&:focus': {
-            left: '0',
-            top: '0',
+          padding: "1rem",
+          backgroundColor: "primary.main",
+          color: "white",
+          textDecoration: "none",
+          "&:focus": {
+            left: "0",
+            top: "0",
           },
         }}
       >
@@ -121,67 +121,73 @@ function Dashboard() {
           </Toolbar>
         </AppBar>
 
-      {/* Tabs Navigation */}
-      <Container maxWidth="lg" sx={{ mt: 3 }} component="main" id="main-content">
-        <Paper sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={currentTab}
-            onChange={handleTabChange}
-            aria-label="CRM data navigation tabs"
+        {/* Tabs Navigation */}
+        <Container
+          maxWidth="lg"
+          sx={{ mt: 3 }}
+          component="main"
+          id="main-content"
+        >
+          <Paper sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs
+              value={currentTab}
+              onChange={handleTabChange}
+              aria-label="CRM data navigation tabs"
+            >
+              <Tab
+                icon={<ContactsIcon />}
+                label="Contacts"
+                iconPosition="start"
+                id="tab-0"
+                aria-controls="tabpanel-0"
+              />
+              <Tab
+                icon={<LeaderboardIcon />}
+                label="Leads"
+                iconPosition="start"
+                id="tab-1"
+                aria-controls="tabpanel-1"
+              />
+            </Tabs>
+          </Paper>
+
+          {/* Tab Content */}
+          <Box
+            sx={{ mt: 3 }}
+            role="tabpanel"
+            id="tabpanel-0"
+            aria-labelledby="tab-0"
+            hidden={currentTab !== 0}
           >
-            <Tab
-              icon={<ContactsIcon />}
-              label="Contacts"
-              iconPosition="start"
-              id="tab-0"
-              aria-controls="tabpanel-0"
-            />
-            <Tab
-              icon={<LeaderboardIcon />}
-              label="Leads"
-              iconPosition="start"
-              id="tab-1"
-              aria-controls="tabpanel-1"
-            />
-          </Tabs>
-        </Paper>
+            {currentTab === 0 && (
+              <ContactsTable
+                contacts={contacts}
+                loading={contactsLoading}
+                error={contactsError}
+                onRefresh={fetchContacts}
+              />
+            )}
+          </Box>
 
-        {/* Tab Content */}
-        <Box
-          sx={{ mt: 3 }}
-          role="tabpanel"
-          id="tabpanel-0"
-          aria-labelledby="tab-0"
-          hidden={currentTab !== 0}
-        >
-          {currentTab === 0 && (
-            <ContactsTable
-              contacts={contacts}
-              loading={contactsLoading}
-              error={contactsError}
-              onRefresh={fetchContacts}
-            />
-          )}
-        </Box>
-
-        <Box
-          sx={{ mt: 3 }}
-          role="tabpanel"
-          id="tabpanel-1"
-          aria-labelledby="tab-1"
-          hidden={currentTab !== 1}
-        >
-          {currentTab === 1 && (
-            <LeadsTable
-              leads={leads}
-              loading={leadsLoading}
-              error={leadsError}
-              onRefresh={fetchLeads}
-            />
-          )}
-        </Box>
-      </Container>
-    </Box>
+          <Box
+            sx={{ mt: 3 }}
+            role="tabpanel"
+            id="tabpanel-1"
+            aria-labelledby="tab-1"
+            hidden={currentTab !== 1}
+          >
+            {currentTab === 1 && (
+              <LeadsTable
+                leads={leads}
+                loading={leadsLoading}
+                error={leadsError}
+                onRefresh={fetchLeads}
+              />
+            )}
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 }
 
