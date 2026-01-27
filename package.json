@@ -1,0 +1,47 @@
+{
+  "name": "crm-dashboard",
+  "version": "1.0.0",
+  "description": "Full-stack CRM dashboard with Salesforce integration",
+  "author": "Nabin Tamang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BabLma/salesforce-crm-dashboard.git"
+  },
+  "homepage": "https://your-app.onrender.com",
+  "keywords": [
+    "react",
+    "salesforce",
+    "crm",
+    "oauth",
+    "accessibility"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "server": "node backend/server.js",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "NODE_ENV=production node backend/server.js"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fontsource/roboto": "^5.2.9",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.13.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "concurrently": "^9.2.1",
+    "vite": "^7.3.1"
+  }
+}
