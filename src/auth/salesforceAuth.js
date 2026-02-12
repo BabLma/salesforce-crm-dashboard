@@ -1,9 +1,9 @@
 // Salesforce OAuth 2.0 Configuration and Utility Functions
 
 const CLIENT_ID = import.meta.env.VITE_SALESFORCE_CLIENT_ID;
-const CLIENT_SECRET = import.meta.env.VITE_SALESFORCE_CLIENT_SECRET;
 const REDIRECT_URI = import.meta.env.VITE_SALESFORCE_CALLBACK_URL;
 const LOGIN_URL = import.meta.env.VITE_SALESFORCE_LOGIN_URL;
+const PROXY_URL = import.meta.env.VITE_PROXY_URL || 'http://localhost:3001';
 
 /**
  * Generates a random string for PKCE code verifier
@@ -77,7 +77,7 @@ export const exchangeCodeForToken = async (code) => {
 
   try {
     // Use proxy server to avoid CORS issues
-    const response = await fetch('http://localhost:3001/api/oauth/token', {
+    const response = await fetch(`${PROXY_URL}/api/oauth/token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ export const refreshAccessToken = async () => {
 
   try {
     // Use proxy server to avoid CORS issues
-    const response = await fetch('http://localhost:3001/api/oauth/refresh', {
+    const response = await fetch(`${PROXY_URL}/api/oauth/refresh`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
