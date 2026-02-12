@@ -10,7 +10,6 @@ export default defineConfig({
     'import.meta.env.VITE_PROXY_URL': JSON.stringify(process.env.VITE_PROXY_URL || 'http://localhost:3001'),
     'import.meta.env.VITE_SALESFORCE_CALLBACK_URL': JSON.stringify(process.env.VITE_SALESFORCE_CALLBACK_URL),
     'import.meta.env.VITE_SALESFORCE_CLIENT_ID': JSON.stringify(process.env.VITE_SALESFORCE_CLIENT_ID),
-    'import.meta.env.VITE_SALESFORCE_CLIENT_SECRET': JSON.stringify(process.env.VITE_SALESFORCE_CLIENT_SECRET),
     'import.meta.env.VITE_SALESFORCE_LOGIN_URL': JSON.stringify(process.env.VITE_SALESFORCE_LOGIN_URL),
     'import.meta.env.VITE_SALESFORCE_API_VERSION': JSON.stringify(process.env.VITE_SALESFORCE_API_VERSION),
   },

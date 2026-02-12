@@ -32,3 +32,6 @@ dist-ssr
 # Build outputs
 build
 coverage
+
+# Project documentation (personal notes)
+project_doc.md
